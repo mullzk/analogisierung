@@ -12,6 +12,10 @@ gem "sprockets-rails"
 # Mullzk:
 # Use Postgres as the database for Active Record, as used by heroku
 gem 'pg'
+# Why is annotate_models still not part of Ruby???
+gem 'annotate'
+
+
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"

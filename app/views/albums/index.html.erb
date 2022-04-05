@@ -3,12 +3,40 @@
 <h1>Albums</h1>
 
 <div id="albums">
-  <% @albums.each do |album| %>
-    <%= render album %>
-    <p>
-      <%= link_to "Show this album", album %>
-    </p>
-  <% end %>
+	<table>
+		<tr>
+			<th>Genre</th>
+			<th>Artist</th>
+			<th>Album</th>
+			<th>Show/Edit/Destroy</th>
+		</tr>
+  	    <% @albums.each do |album| %>
+  		<tr>
+			<td><%= album.genre.title %></td>
+			<td><%= album.artist %></td>
+			<td><%= album.title %></td>
+			<td><%= link_to "Show", album %> | <%= link_to "Edit", edit_album_path(album) %><%= button_to "Delete", album, method: :delete, form: {style: 'display:inline-block;'} %></td>
+		</tr>
+  	  	<% end %>
+
+		<%= form_with(model: @album) do |form| %>
+		  <% if @album.errors.any? %>
+		  	<tr><td colspan=4>
+		    <div style="color: red">
+		      <h2><%= pluralize(album.errors.count, "error") %> prohibited this album from being saved:</h2>
+
+		      <ul> <% @album.errors.each do |error| %> <li><%= error.full_message %></li> <% end %> </ul> </div> </td></tr> <% end %> <tr> <td><%=
+		      form.collection_select(:genre_id, Genre.all, :id, :title, {:prompt => 'Select the Genre'}, { :selected => @album.genre_id, :autofocus => ""} ) %></td>
+		      <td><%= form.text_field :artist %></td> 
+			  <td><%= form.text_field :title %></td> 
+			  <td><%= form.submit %></td> </tr>
+  
+		<% end %>
+
+	</table>
+				
+
 </div>
+<a href="http://endor.local:5005/3_wohnzimmer/musicsearch/library/album/all+too+soon">Play 'All too soon'</a> | 
 
 <%= link_to "New album", new_album_path %>

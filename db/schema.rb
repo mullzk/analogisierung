@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_04_200227) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_05_160134) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,6 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_04_200227) do
     t.string "albumart"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "titlelist"
     t.index ["genre_id"], name: "index_albums_on_genre_id"
   end
 

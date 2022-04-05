@@ -23,7 +23,7 @@
 
   <div>
     <%= form.label :genre_id, style: "display: block" %>
-    <%= form.text_field :genre_id %>
+	<%= form.collection_select(:genre_id, Genre.all, :id, :title, {:prompt => 'Select the Genre'}, :selected => @album.genre_id ) %>
   </div>
 
   <div>
