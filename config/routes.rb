@@ -5,4 +5,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  root "albums#index"
+  
+  match "*path", to: "albums#index", via: :get
 end

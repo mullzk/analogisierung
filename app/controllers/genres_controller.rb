@@ -4,6 +4,7 @@ class GenresController < ApplicationController
   # GET /genres or /genres.json
   def index
     @genres = Genre.all
+    @genre = Genre.new
   end
 
   # GET /genres/1 or /genres/1.json
@@ -25,7 +26,7 @@ class GenresController < ApplicationController
 
     respond_to do |format|
       if @genre.save
-        format.html { redirect_to genre_url(@genre), notice: "Genre was successfully created." }
+        format.html { redirect_to genres_url(), notice: "Genre was successfully created." }
         format.json { render :show, status: :created, location: @genre }
       else
         format.html { render :new, status: :unprocessable_entity }

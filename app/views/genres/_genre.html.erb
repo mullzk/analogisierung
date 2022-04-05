@@ -1,7 +1,5 @@
 <div id="<%= dom_id genre %>">
-  <p>
-    <strong>Title:</strong>
-    <%= genre.title %>
-  </p>
+    <p style="display:inline;"><%= genre.title %></p>
+	<label><%= button_to "Delete", genre, method: :delete, form: {style: 'display:inline-block;'} %></label>
 
 </div>
