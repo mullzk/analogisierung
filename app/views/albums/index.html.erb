@@ -9,13 +9,15 @@
 			<th>Artist</th>
 			<th>Album</th>
 			<th>Show/Edit/Destroy</th>
+			<th>Controls</th>
 		</tr>
   	    <% @albums.each do |album| %>
   		<tr>
 			<td><%= album.genre.title %></td>
 			<td><%= album.artist %></td>
 			<td><%= album.title %></td>
-			<td><%= link_to "Show", album %> | <%= link_to "Edit", edit_album_path(album) %><%= button_to "Delete", album, method: :delete, form: {style: 'display:inline-block;'} %></td>
+			<td><small><%= link_to "Show", album %> | <%= link_to "Edit", edit_album_path(album) %><%= button_to "Delete", album, method: :delete, form: {style: 'display:inline-block;'} %></small></td>
+			<td><a href="http://endor.local:5005/3_wohnzimmer/musicsearch/library/album/<%= album.searchStringInLibraryMusicSearch %>">Play</a></td>
 		</tr>
   	  	<% end %>
 
@@ -38,5 +40,13 @@
 
 </div>
 <a href="http://endor.local:5005/3_wohnzimmer/musicsearch/library/album/all+too+soon">Play 'All too soon'</a> | 
+<a href="http://endor.local:5005/3_wohnzimmer/musicsearch/library/song/Take+a+Chance+on+me">Play 'Take a Chance on me'</a> | 
+<a href="http://endor.local:5005/3_wohnzimmer/musicsearch/library/song/Abba+Mamma+Mia">Play 'Abba Mamma Mia'</a> | 
+<a href="http://endor.local:5005/3_wohnzimmer/musicsearch/library/song/Abba+Knowing+Me+Knowing+You">Play 'Knowing Me Knowing You'</a> | 
+<a href="http://endor.local:5005/3_wohnzimmer/musicsearch/library/song/Abba+SOS">Play 'S.O.S'</a> | 
+<a href="http://endor.local:5005/3_wohnzimmer/musicsearch/library/album/Philipp%20Fankhauser%20%26%20Checkerboard%20Blues%20Band+...with%20a%20Feeling%21">Play '...with a feeling'</a> | <br />
+<a href="http://endor.local:5005/3_wohnzimmer/musicsearch/spotify/album/Nirvana+Nevermind">Play Nevermind on Spotify</a> | 
 
-<%= link_to "New album", new_album_path %>
+<br /><a href="http://endor.local:5005/3_wohnzimmer/playpause">Play/Pause</a> | <a href="http://endor.local:5005/3_wohnzimmer/volume/+10">Louder</a> | <a href="http://endor.local:5005/3_wohnzimmer/volume/-10"> Leiser</a>
+<br /><%= link_to "New album", new_album_path %>
+<br /><%= link_to "Genres", genres_path %>

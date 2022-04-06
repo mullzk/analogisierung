@@ -22,4 +22,8 @@
 #
 class Album < ApplicationRecord
   belongs_to :genre
+  
+  def searchStringInLibraryMusicSearch
+    "#{title}"
+  end
 end
